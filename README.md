@@ -16,3 +16,14 @@
 - what makes your ract app fast / what makes your app performence /what makes your developer better so taht time you can answer all these things
 - differnt dev and production bundeles
 
+- utils name with small letter cuz these are not a componenets 
+<!-- 
+ two types of export
+
+ 1) default export/import
+  export default Header;
+  import Header from "./Component/Header";
+
+ 2) named export/import -->
+ <!-- import {CDN_URL} from foloder path for import
+ export const CDN_URL = " url" -->
