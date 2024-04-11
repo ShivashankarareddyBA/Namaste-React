@@ -3,6 +3,7 @@ import { IMG } from "../utils/constants";
 const Cards = (props) => {
   const { resData } = props;
   const {
+    
     cloudinaryImageId,
     name,
     cuisines,
