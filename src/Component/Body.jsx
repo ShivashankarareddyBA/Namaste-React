@@ -14,25 +14,29 @@ const Body = () => {
     setListOfRestaurants(filteredList);
   };
 
-  const fetchData = async () => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.1154662&lng=77.6069977&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    // Optional chaining
+    //Optinal chaining
     const topBrands = json?.data?.cards.find(
-      (data) => data?.card?.card?.id === "top_brands_for_you"
+      (data) => data?.card?.card?.id == "top_brands_for_you"
     );
     setListOfRestaurants(
       topBrands.card.card.gridElements.infoWithStyle.restaurants
     );
   };
+  //conditional rendering
+  // if(listOfRestaurants.length == 0){
+  //   return <Shimmer/> below is ternary operation also a same
+  // }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants.length == 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -44,12 +48,21 @@ const Body = () => {
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            //filter the restraunt card and update the UI
+            //serchText
+            console.log(searchText);
             const filteredRestaurant = listOfRestaurants.filter((res) =>
-              res.info.name.toLowerCase().includes(e.target.value.toLowerCase())
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
             setFilteredRestaurant(filteredRestaurant);
           }}
-        />
+        >
+          Search
+        </button>
       </div>
       <button onClick={filterTopRestaurants}>Top Restaurants</button>
       <div className="restaurants">
