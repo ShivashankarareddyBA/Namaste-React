@@ -54,7 +54,7 @@ const Body = () => {
           onClick={() => {
             //filter the restraunt card and update the UI
             //serchText
-            console.log(searchText);
+            
             const filteredRestaurant = listOfRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
