@@ -1,6 +1,7 @@
 import Cards from "./Cards";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+ import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -54,7 +55,7 @@ const Body = () => {
           onClick={() => {
             //filter the restraunt card and update the UI
             //serchText
-            
+
             const filteredRestaurant = listOfRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
@@ -67,7 +68,9 @@ const Body = () => {
       <button onClick={filterTopRestaurants}>Top Restaurants</button>
       <div className="restaurants">
         {filteredRestaurant.map((rescard) => (
-          <Cards key={rescard.info.id} resData={rescard} />
+          <Link key={rescard.info.id} to={"restaurants/" + rescard.info.id}>
+            <Cards resData={rescard} />
+          </Link>
         ))}
       </div>
     </>
