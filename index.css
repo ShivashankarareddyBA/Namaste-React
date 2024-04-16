@@ -97,3 +97,24 @@ h4 {
   height: 200px;
   background-color: #f0f0f0;
 }
+.about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+}
+.contact{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+}
