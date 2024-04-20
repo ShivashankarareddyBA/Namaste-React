@@ -1,7 +1,7 @@
 import Cards from "./Cards";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
- import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -12,14 +12,14 @@ const Body = () => {
     const filteredList = listOfRestaurants.filter(
       (res) => res.info.avgRating > 4
     );
-    setListOfRestaurants(filteredList);
+    setFilteredRestaurant(filteredList);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  fetchData = async () => {
+  const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.1154662&lng=77.6069977&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
@@ -29,6 +29,9 @@ const Body = () => {
       (data) => data?.card?.card?.id == "top_brands_for_you"
     );
     setListOfRestaurants(
+      topBrands.card.card.gridElements.infoWithStyle.restaurants
+    );
+    setFilteredRestaurant(
       topBrands.card.card.gridElements.infoWithStyle.restaurants
     );
   };
