@@ -8,23 +8,22 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
-  console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDD", resInfo);
+
   const cardInfo = resInfo?.cards[2]?.card?.card?.info;
-  console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDD", resInfo);
+
   const { name, cuisines, costForTwoMessage } = cardInfo || {};
 
   const cardGroup =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDD", cardGroup);
-    
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
   const { itemCards } = cardGroup || {};
+
+  // need to check d
   
-// need to check 
-  console.log(itemCards);
 
   return resInfo == null ? (
     <Shimmer />
-  ) : (
+  ) : ( 
     <>
       <div className="menu">
         <h2>{name}</h2>
