@@ -2,6 +2,7 @@ import Cards from "./Cards";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -39,6 +40,13 @@ const Body = () => {
   // if(listOfRestaurants.length == 0){
   //   return <Shimmer/> below is ternary operation also a same
   // }
+
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus) {
+    return <h1>Looks like you're offline! Please check your connection</h1>;
+  }
+
+
 
   return listOfRestaurants.length == 0 ? (
     <Shimmer />
