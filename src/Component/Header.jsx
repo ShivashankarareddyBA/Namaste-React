@@ -6,23 +6,23 @@ const Header = () => {
   const [logButton, setLogButton] = useState("Login");
   return (
     <>
-      <div className="header">
-        <img className="header-img" src={LOGO} alt="" />
-        <div className="header-menu">
-          <ul>
-            <li>
+      <div className= "flex justify-between bg-pink-100 shadow-lg mb-2">
+        <img className="w-20" src={LOGO} alt="" />
+        <div className="flex items-center">
+          <ul className="flex m-4 p-4">
+          <li className="px-4">
+             {/* /* <Link >Onlie Status:{onlineStatus? "✅" : "🔴"} </Link>*\ */}
+            </li>
+            <li className="px-4">
               <Link to="/">HOME </Link>
             </li>
-            <li>
-              <Link to="/">HOME </Link>
-            </li>
-            <li>
+            <li className="px-4">
               <Link to="/about"> ABOUT</Link>
             </li>
-            <li>
+            <li className="px-4">
               <Link to="/contact">CONTACT</Link>{" "}
             </li>
-            <li>CART</li>
+            <li className="px-4">CART</li>
             <button
               className="logbtn"
               onClick={() => {
