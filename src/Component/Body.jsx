@@ -52,17 +52,17 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search">
+      <div className="search m-4 p-4">
         <label>Search</label>
         <input
           type="text"
-          className="search-box"
+          className="border border-solid border-black"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         />
-        <button
+        <button className="px-4 py-4 bg-green-200 m-4 rounded-lg"
           onClick={() => {
             //filter the restraunt card and update the UI
             //serchText
@@ -76,7 +76,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <button onClick={filterTopRestaurants}>Top Restaurants</button>
+      <button  className= "px-4 py-4 bg-green-200 m-4 rounded-lg" onClick={filterTopRestaurants}>Top Restaurants</button>
       <div className="restaurants">
         {filteredRestaurant.map((rescard) => (
           <Link key={rescard.info.id} to={"restaurants/" + rescard.info.id}>
