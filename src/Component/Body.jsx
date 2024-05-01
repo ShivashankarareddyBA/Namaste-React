@@ -36,6 +36,7 @@ const Body = () => {
       topBrands.card.card.gridElements.infoWithStyle.restaurants
     );
   };
+
   //conditional rendering
   // if(listOfRestaurants.length == 0){
   //   return <Shimmer/> below is ternary operation also a same
@@ -52,17 +53,17 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search m-4 p-4">
+      <div className="m-4 p-4">
         <label>Search</label>
         <input
           type="text"
-          className="border border-solid border-black"
+          className="" 
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         />
-        <button className="px-4 py-4 bg-green-200 m-4 rounded-lg"
+        <button 
           onClick={() => {
             //filter the restraunt card and update the UI
             //serchText
@@ -76,7 +77,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <button  className= "px-4 py-4 bg-green-200 m-4 rounded-lg" onClick={filterTopRestaurants}>Top Restaurants</button>
+      <button   onClick={filterTopRestaurants}>Top Restaurants</button>
       <div className="restaurants">
         {filteredRestaurant.map((rescard) => (
           <Link key={rescard.info.id} to={"restaurants/" + rescard.info.id}>
