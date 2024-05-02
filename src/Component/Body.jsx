@@ -9,6 +9,8 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
+  
+
   const filterTopRestaurants = () => {
     const filteredList = listOfRestaurants.filter(
       (res) => res.info.avgRating > 4
@@ -36,20 +38,24 @@ const Body = () => {
       topBrands.card.card.gridElements.infoWithStyle.restaurants
     );
   };
-
+   console.log("lll", topBrands);
   //conditional rendering
   // if(listOfRestaurants.length == 0){
   //   return <Shimmer/> below is ternary operation also a same
   // }
 
   const onlineStatus = useOnlineStatus();
-  if (!onlineStatus) {
-    return <h1>Looks like you're offline! Please check your connection</h1>;
-  }
+
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks like you're offline!! Please check your internet connection;
+      </h1>
+    );
 
 
 
-  return listOfRestaurants.length == 0 ? (
+  return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -57,7 +63,7 @@ const Body = () => {
         <label>Search</label>
         <input
           type="text"
-          className="" 
+          className="m-4 p-4" 
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
