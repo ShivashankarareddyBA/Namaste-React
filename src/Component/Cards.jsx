@@ -14,7 +14,7 @@ const Cards = (props) => {
   console.log(resData);
   return (
     <>
-      <div className="res-card">
+      <div className=" m-4 p-2 border border-solid-block-4 w-[250px] h-[450px]">
         <img className="res-img" src={IMG + cloudinaryImageId} alt="" />
         <h1>{name}</h1>
         <h3>{cuisines.join(", ")}</h3>
