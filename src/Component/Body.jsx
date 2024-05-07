@@ -59,18 +59,18 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="  m-4 p-4">
+      <div className="flex justify-between items-center m-4 p-4 ml-[220px] mr-[220]">
 
-        <label>Search</label>
+        <label className="text-blue-500 " >Search</label>
         <input 
           type="text"
-          className=" m-2 boshadow appearance-none border rounded w-[500px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+          className="border border-solid border-black w-[600px] h-7 rounded-lg" 
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         />
-        <button className=" bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded p-3"
+        <button className=" flex items-center h-7 bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded-lg "
           onClick={() => {
             //filter the restraunt card and update the UI
             //serchText
@@ -83,10 +83,11 @@ const Body = () => {
         >
           Search
         </button>
-        <button className="m-2  bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded p-3"  onClick={filterTopRestaurants}>Top Restaurants</button>
+        <button className=" flex items-center h-7 m-2 ml-15 bg-blue-400 hover:bg-blue-700
+         text-white py-2 px-3 rounded-lg"  onClick={filterTopRestaurants}>Top Restaurants</button>
       </div>
       
-      <div className="restaurants">
+      <div className="flex flex-wrap justify-between mx-20 ">
         {filteredRestaurant.map((rescard) => (
           <Link key={rescard.info.id} to={"restaurants/" + rescard.info.id}>
             <Cards resData={rescard} />
