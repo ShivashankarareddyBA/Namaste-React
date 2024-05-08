@@ -15,6 +15,7 @@ const RestaurantMenu = () => {
 
   const cardGroup =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
   const { itemCards } = cardGroup || {};
 

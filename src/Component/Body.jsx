@@ -1,4 +1,4 @@
-import Cards from "./Cards";
+import Cards, {promotedLable}from "./Cards";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  
+  const RestaurantCardPromoted = promotedLable(Cards);
 
   const filterTopRestaurants = () => {
     const filteredList = listOfRestaurants.filter(
@@ -34,6 +34,7 @@ const Body = () => {
     setListOfRestaurants(
       topBrands.card.card.gridElements.infoWithStyle.restaurants
     );
+    
     setFilteredRestaurant(
       topBrands.card.card.gridElements.infoWithStyle.restaurants
     );
@@ -90,7 +91,9 @@ const Body = () => {
       <div className="flex flex-wrap justify-between mx-20 ">
         {filteredRestaurant.map((rescard) => (
           <Link key={rescard.info.id} to={"restaurants/" + rescard.info.id}>
-            <Cards resData={rescard} />
+            { rescard.info.promoted ?(
+              <RestaurantCardPromoted resData={rescard} /> ): (
+            <Cards resData={rescard} />)}
           </Link>
         ))}
       </div>

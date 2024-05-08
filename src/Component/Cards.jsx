@@ -14,8 +14,8 @@ const Cards = (props) => {
   console.log(resData);
   return (
     <>
-      <div className="mx-1 my-2 p-2 border border-solid border-block w-[280px] h-[462px] hover: bg-gray-400">
-        <img className="rounded-lg h-45" src={IMG + cloudinaryImageId} alt="" />
+      <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
+        <img className="rounded-lg h-50" src={IMG + cloudinaryImageId} alt="" />
         <h1 className="font-bold text-lg py-1" >{name}</h1>
         <h3 className="text-sm py-1">{cuisines.join(", ")}</h3>
         <h4 className="text-sm py-1">{avgRating} Stars</h4>
@@ -25,5 +25,17 @@ const Cards = (props) => {
     </>
   );
 };
+
+export const promotedLable= (Cards) =>
+{
+  return (props)=>{
+    return(
+      <>
+      <label className="absolute bg-black text-white m-1 p-1 rounded-lg">Pramoted</label>
+      <Cards {...props}/>
+      </>
+    )
+  }
+}
 
 export default Cards;
