@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
@@ -9,6 +9,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
+
+  const [showIndex, setShowIndex] = useState(0) //if we can pass null by default every thing colsed
 
   const cardInfo = resInfo?.cards[2]?.card?.card?.info;
 
@@ -38,8 +40,12 @@ const RestaurantMenu = () => {
         <p>{cuisines.join(",")} - {costForTwoMessage} </p>
         
         {
-          categories.map((category)=> (
-          <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}/>
+          categories.map((category, index)=> (
+          <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}
+          showItems={index === showIndex ? true:false}
+          setShowIndex={()=>setShowIndex(index)}
+          />
+        
         ))
         }
       </div>
