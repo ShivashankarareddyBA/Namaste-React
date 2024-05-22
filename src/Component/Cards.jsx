@@ -1,4 +1,6 @@
+
 import { IMG } from "../utils/constants";
+
 
 const Cards = (props) => {
   const { resData } = props;
