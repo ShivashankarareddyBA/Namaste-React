@@ -8,12 +8,15 @@ import Error from "./Component/Error";
 import RestaurantMenu from "./Component/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 // import Grocery from "./Component/Grocery";
+import { Provider } from "react-redux";
+import AppStore from "./utils/appStore";
 
 
 const Grocery =lazy(()=> import("./Component/Grocery"));
 
 const AppLayout = () => {
   return (
+    <Provider  store={AppStore}>
     <div className="app">
       <Header />
       <Outlet />
@@ -27,6 +30,7 @@ const AppLayout = () => {
       {/* <Contact /> */}
       {/* we nned to push children route accordingly */}
     </div>
+    </Provider>
   );
 };
 

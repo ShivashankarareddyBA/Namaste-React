@@ -1,5 +1,8 @@
-
+import { useContext } from "react";
 import { IMG } from "../utils/constants";
+import UserContext from './../utils/UserContext';
+
+
 
 
 const Cards = (props) => {
@@ -14,6 +17,7 @@ const Cards = (props) => {
   } = resData?.info || {};
 
   console.log(resData);
+  const {LoggedInUser} = useContext(UserContext);
   return (
     <>
       <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
@@ -23,6 +27,7 @@ const Cards = (props) => {
         <h4 className="text-sm py-1">{avgRating} Stars</h4>
         <h4 className="text-sm py-1">{costForTwo}</h4>
         <h4 className="text-sm py-1">{deliveryTime} minutes</h4>
+        <h4 className="text-sm py-1"> User : {LoggedInUser}</h4>
       </div>
     </>
   );
