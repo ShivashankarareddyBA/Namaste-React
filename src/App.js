@@ -10,6 +10,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 // import Grocery from "./Component/Grocery";
 import { Provider } from "react-redux";
 import AppStore from "./utils/appStore";
+import Cart from "./Component/Cart";
 
 
 const Grocery =lazy(()=> import("./Component/Grocery"));
@@ -55,6 +56,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: <Suspense fallback={<h1>loading..</h1>}><Grocery /> </Suspense>,
+      },
+
+      {
+        path: "/cart",
+        element: <Cart/>
       },
       {
         path: "/restaurants/:resId", //resID is dynamic here

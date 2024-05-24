@@ -3,11 +3,15 @@ import { LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
+import shoppingcart from "../assets/shopping-cart.png"
 
 const Header = () => {
   const [logButton, setLogButton] = useState("Login");
   const onlineStatus = useOnlineStatus();
  const {loggedInUser} = useContext(UserContext);
+//subscribing to to redux store
+ const cartItems= useSelector((store)=>store.cart.items);
 
 
   return (
@@ -29,7 +33,11 @@ const Header = () => {
             <li className="px-4">
               <Link to="/grocery">Grocery</Link>
             </li>
-            <li className="px-4">CART</li>
+            <li className="px-4">
+              <Link to="/cart">Cart {cartItems.length}</Link>
+            </li>
+            
+
             <button
               className="logbtn"
               onClick={() => {
