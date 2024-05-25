@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
 import { useSelector } from "react-redux";
-import shoppingcart from "../assets/shopping-cart.png"
 
 const Header = () => {
   const [logButton, setLogButton] = useState("Login");
