@@ -27,3 +27,17 @@
  2) named export/import -->
  <!-- import {CDN_URL} from foloder path for import
  export const CDN_URL = " url" -->
+
+
+ <!-- -# types of testing developer use 
+unit testing 
+integration test
+
+another test e2e (end to end) need to use selenium etec
+
+setting  up testing library 
+
+install react testin library 
+install just
+installed babel dependencies
+configure babel  -->
