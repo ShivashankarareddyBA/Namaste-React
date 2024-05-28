@@ -41,3 +41,7 @@ install react testin library
 install just
 installed babel dependencies
 configure babel  -->
+configure parcel config file to disable deafault babel tranpilator
+jest -npx jext --init
+install jsdom library
+config babelrc file
