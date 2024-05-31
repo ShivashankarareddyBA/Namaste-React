@@ -10,4 +10,3 @@ test("should load contact us component", () => {
         expect(headings).toBeInTheDocument();
    });
 });
-// testing part
