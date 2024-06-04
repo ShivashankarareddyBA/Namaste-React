@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import '@testing-library/jest-dom'; 
 import appStore from "../../utils/appStore"
 
-it("should load Header component with a Login Button", () => {
+it("should render Header component with a Login Button", () => {
   render(
     <BrowserRouter>
       <Provider store={appStore}>
